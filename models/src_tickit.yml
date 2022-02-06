@@ -51,7 +51,7 @@ sources:
               - unique
               - not_null
 
-      - name: listing
+      - name: listings
         description: Raw user data.
         columns:
           - name: LISTID

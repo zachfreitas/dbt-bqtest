@@ -5,7 +5,6 @@ with event as (
         VENUEID,
         CATID,
         DATEID,
-        MONTH,
         EVENTNAME,
         STARTTIME
 

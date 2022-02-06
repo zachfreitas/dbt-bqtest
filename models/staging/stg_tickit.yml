@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: category
+  - name: stg_category
     description: Category Data.
     columns: 
       - name: CATID
@@ -16,7 +16,7 @@ models:
       - name: CATDESC
         description: Longer descriptive name for the type of event, such as Musical theatre.
 
-  - name: date
+  - name: stg_date
     description: Date data.
     columns: 
       - name: DATEID
@@ -39,7 +39,7 @@ models:
       - name: HOLIDAY
         description: Flag that denotes whether the day is a public holiday (U.S.).
 
-  - name: event
+  - name: stg_event
     description: Event Data.
     columns: 
       - name: EVENTID
@@ -59,7 +59,7 @@ models:
         description: Full date and start time for the event, such as 2008-10-10 19:30:00.
 
 
-  - name: venue
+  - name: stg_venue
     description: Venue Data.
     columns: 
       - name: VENUEID
@@ -76,32 +76,7 @@ models:
       - name: VENUESEATS
         description: Maximum number of seats available at the venue, if known, such as 73200. For demonstration purposes, this column contains some null values and zeroes.
       
-
-  - name: users
-    description: Users Data.
-    columns: 
-      - name: USERID
-        description: 	Primary key, a unique ID value for each row. Each row represents a registered user (a buyer or seller or both) who has listed or bought tickets for at least one event.
-        tests:
-          - unique
-          - not_null
-      - name: USERNAME
-        description: An 8-character alphanumeric username, such as PGL08LJI.
-      - name: FIRSTNAME
-        description: The user's first name, such as Victor.
-      - name: LASTNAME
-        description: The user's last name, such as Hernandez. 
-      - name: CITY
-        description: he user's home city, such as Naperville.
-      - name: STATE
-        description: The user's home state, such as GA.
-      - name: EMAIL
-        description: The user's email address; this column contains random Latin values, such as turpis@accumsanlaoreet.org.
-      - name: PHONE
-        description: The user's 14-character phone number, such as (818) 765-4255.
- 
-
-  - name: listings
+  - name: stg_listings
     description: Listings Data.
     columns: 
       - name: LISTID
@@ -124,7 +99,7 @@ models:
       - name: LISTTIME
         description: The full date and time when the listing was posted, such as 2008-03-18 07:19:35.
 
-  - name: sales
+  - name: stg_sales
     description: Sales Data.
     columns: 
       - name: SALESID

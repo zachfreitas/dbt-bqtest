@@ -126,3 +126,26 @@ models:
       - name: SALETIME
         description: The full date and time when the sale was completed, such as 2008-05-24 06:21:47.
       
+
+  - name: stg_users
+    description: Users Data.
+    columns: 
+      - name: USERID
+        description: Primary key, a unique ID value for each row. Each row represents a registered user (a buyer or seller or both) who has listed or bought tickets for at least one event.
+        tests:
+          - unique
+          - not_null
+      - name: USERNAME
+        description: An 8-character alphanumeric username, such as PGL08LJI.
+      - name: FIRSTNAME
+        description: The user's first name, such as Victor.
+      - name: LASTNAME
+        description: The user's last name, such as Hernandez. 
+      - name: CITY
+        description: he user's home city, such as Naperville.
+      - name: STATE
+        description: The user's home state, such as GA.
+      - name: EMAIL
+        description: The user's email address; this column contains random Latin values, such as turpis@accumsanlaoreet.org.
+      - name: PHONE
+        description: The user's 14-character phone number, such as (818) 765-4255.

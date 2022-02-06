@@ -13,6 +13,7 @@ with sales as (
         SALETIME
         
     from {{ source('ticket_database', 'sales') }}
+    where SALESID is not null
 )
 
 select * from sales

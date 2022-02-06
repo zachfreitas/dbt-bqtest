@@ -11,6 +11,7 @@ with listings as (
         LISTTIME
         
     from {{ source('ticket_database', 'listings') }}
+    where LISTID is not null
 )
 
 select * from listings

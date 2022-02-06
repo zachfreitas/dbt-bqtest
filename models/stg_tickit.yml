@@ -1,0 +1,153 @@
+version: 2
+
+models:
+  - name: category
+    description: Category Data.
+    columns: 
+      - name: CATID
+        description: Primary key, a unique ID value for each row. Each row represents a specific type of event for which tickets are bought and sold.
+        tests:
+          - unique
+          - not_null
+      - name: CATGROUP
+        description: Descriptive name for a group of events, such as Shows and Sports.
+      - name: CATNAME
+        description: Short descriptive name for a type of event within a group, such as Opera and Musicals.
+      - name: CATDESC
+        description: Longer descriptive name for the type of event, such as Musical theatre.
+
+  - name: date
+    description: Date data.
+    columns: 
+      - name: DATEID
+        description: Primary key, a unique ID value for each row. Each row represents a day in the calendar year.
+        tests:
+          - unique
+          - not_null
+      - name: CALDATE
+        description: Calendar date, such as 2008-06-24.
+      - name: DAY
+        description: Day of week (short form), such as SA.
+      - name: WEEK
+        description: Week number, such as 26.
+      - name: MONTH
+        description: Month name (short form), such as JUN.
+      - name: QTR
+        description: Quarter number (1 through 4).
+      - name: YEAR
+        description: Four-digit year (2008).
+      - name: HOLIDAY
+        description: Flag that denotes whether the day is a public holiday (U.S.).
+
+  - name: event
+    description: Event Data.
+    columns: 
+      - name: EVENTID
+        description: Primary key, a unique ID value for each row. Each row represents a separate event that takes place at a specific venue at a specific time.
+        tests:
+          - unique
+          - not_null
+      - name: VENUEID
+        description: Foreign-key reference to the VENUE table.
+      - name: CATID
+        description: Foreign-key reference to the CATEGORY table.
+      - name: DATEID
+        description: Foreign-key reference to the DATE table.
+      - name: EVENTNAME
+        description: Name of the event, such as Hamlet or La Traviata.
+      - name: STARTTIME
+        description: Full date and start time for the event, such as 2008-10-10 19:30:00.
+
+
+  - name: venue
+    description: Venue Data.
+    columns: 
+      - name: VENUEID
+        description: Primary key, a unique ID value for each row. Each row represents a specific venue where events take place.
+        tests:
+          - unique
+          - not_null
+      - name: VENUENAME
+        description: Exact name of the venue, such as Cleveland Browns Stadium.
+      - name: VENUECITY
+        description: City name, such as Cleveland.
+      - name: VENUESTATE
+        description: Two-letter state or province abbreviation (United States and Canada), such as OH.
+      - name: VENUESEATS
+        description: Maximum number of seats available at the venue, if known, such as 73200. For demonstration purposes, this column contains some null values and zeroes.
+      
+
+  - name: users
+    description: Users Data.
+    columns: 
+      - name: USERID
+        description: 	Primary key, a unique ID value for each row. Each row represents a registered user (a buyer or seller or both) who has listed or bought tickets for at least one event.
+        tests:
+          - unique
+          - not_null
+      - name: USERNAME
+        description: An 8-character alphanumeric username, such as PGL08LJI.
+      - name: FIRSTNAME
+        description: The user's first name, such as Victor.
+      - name: LASTNAME
+        description: The user's last name, such as Hernandez. 
+      - name: CITY
+        description: he user's home city, such as Naperville.
+      - name: STATE
+        description: The user's home state, such as GA.
+      - name: EMAIL
+        description: The user's email address; this column contains random Latin values, such as turpis@accumsanlaoreet.org.
+      - name: PHONE
+        description: The user's 14-character phone number, such as (818) 765-4255.
+ 
+
+  - name: listings
+    description: Listings Data.
+    columns: 
+      - name: LISTID
+        description: Primary key, a unique ID value for each row. Each row represents a listing of a batch of tickets for a specific event.
+        tests:
+          - unique
+          - not_null
+      - name: SELLERID
+        description: Foreign-key reference to the USERS table, identifying the user who is selling the tickets.
+      - name: EVENTID
+        description: Foreign-key reference to the EVENT table.
+      - name: DATEID
+        description: Foreign-key reference to the DATE table.
+      - name: NUMTICKETS
+        description: The number of tickets available for sale, such as 2 or 20.
+      - name: PRICEPERTICKET
+        description: The fixed price of an individual ticket, such as 27.00 or 206.00.
+      - name: TOTALPRICE
+        description: The total price for this listing (NUMTICKETS*PRICEPERTICKET).
+      - name: LISTTIME
+        description: The full date and time when the listing was posted, such as 2008-03-18 07:19:35.
+
+  - name: sales
+    description: Sales Data.
+    columns: 
+      - name: SALESID
+        description: Primary key, a unique ID value for each row. Each row represents a sale of one or more tickets for a specific event, as offered in a specific listing.
+        tests:
+          - unique
+          - not_null
+      - name: LISTID
+        description: Foreign-key reference to the LISTING table.
+      - name: SELLERID
+        description: Foreign-key reference to the USERS table (the user who sold the tickets).
+      - name: BUYERID
+        description: Foreign-key reference to the USERS table (the user who bought the tickets).
+      - name: EVENTID
+        description: Foreign-key reference to the EVENT table.
+      - name: DATEID
+        description: Foreign-key reference to the DATE table.
+      - name: QTYSOLD
+        description: The number of tickets that were sold, from 1 to 8. (A maximum of 8 tickets can be sold in a single transaction.)
+      - name: PRICEPAID
+        description: The total price paid for the tickets, such as 75.00 or 488.00. The individual price of a ticket is PRICEPAID/QTYSOLD.
+      - name: COMMISSION
+        description: The 15% commission that the business collects from the sale, such as 11.25 or 73.20. The seller receives 85% of the PRICEPAID value.
+      - name: SALETIME
+        description: The full date and time when the sale was completed, such as 2008-05-24 06:21:47.
+      

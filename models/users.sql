@@ -20,6 +20,7 @@ with users as (
         likebroadway
         
     from {{ source('ticket_database', 'users') }}
+    where USERID is not null
 )
 
 select * from users

@@ -58,7 +58,6 @@ sources:
             description: Primary key, a unique ID value for each row. Each row represents a listing of a batch of tickets for a specific event.
             tests:
               - unique
-              - not_null
 
       - name: sales
         description: Raw sales data.
@@ -67,4 +66,3 @@ sources:
             description: Primary key, a unique ID value for each row. Each row represents a sale of one or more tickets for a specific event, as offered in a specific listing.
             tests:
               - unique
-              - not_null

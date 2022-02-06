@@ -7,6 +7,7 @@ with category as (
         CATDESC
         
     from {{ source('ticket_database', 'category') }}
+    where CATID is not null
 )
 
 select * from category

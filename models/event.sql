@@ -9,6 +9,7 @@ with event as (
         STARTTIME
 
     from {{ source('ticket_database', 'allevents') }}
+    where EVENTID is not null
 )
 
 select * from event

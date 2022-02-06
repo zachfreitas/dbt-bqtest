@@ -1,0 +1,70 @@
+version: 2
+
+sources:
+  - name: ticket_database
+    description: A clone of a Postgres application database.
+    database: tickit-database
+    schema: bqtest
+    tables:
+      - name: users
+        description: Raw user data.
+        columns:
+          - name: USERID
+            description: Primary key, a unique ID value for each row. Each row represents a registered user (a buyer or seller or both) who has listed or bought tickets for at least one event.
+            tests:
+              - unique
+              - not_null
+
+      - name: category
+        description: Raw user data.
+        columns:
+          - name: CATID
+            description: Primary key, a unique ID value for each row. Each row represents a specific type of event for which tickets are bought and sold.
+            tests:
+              - unique
+              - not_null
+
+      - name: date
+        description: Raw user data.
+        columns:
+          - name: DATEID
+            description: Primary key, a unique ID value for each row. Each row represents a day in the calendar year.
+            tests:
+              - unique
+              - not_null
+
+      - name: allevents
+        description: Raw events data.
+        columns:
+          - name: EVENTID
+            description: Primary key, a unique ID value for each row. Each row represents a separate event that takes place at a specific venue at a specific time.
+            tests:
+              - unique
+              - not_null
+
+      - name: venue
+        description: Raw user data.
+        columns:
+          - name: VENUEID
+            description: Primary key, a unique ID value for each row. Each row represents a specific venue where events take place.
+            tests:
+              - unique
+              - not_null
+
+      - name: listing
+        description: Raw user data.
+        columns:
+          - name: LISTID
+            description: Primary key, a unique ID value for each row. Each row represents a listing of a batch of tickets for a specific event.
+            tests:
+              - unique
+              - not_null
+
+      - name: sales
+        description: Raw sales data.
+        columns:
+          - name: SALESID
+            description: Primary key, a unique ID value for each row. Each row represents a sale of one or more tickets for a specific event, as offered in a specific listing.
+            tests:
+              - unique
+              - not_null

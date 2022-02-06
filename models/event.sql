@@ -1,0 +1,15 @@
+with event as (
+    
+    select 
+        EVENTID,
+        VENUEID,
+        CATID,
+        DATEID,
+        MONTH,
+        EVENTNAME,
+        STARTTIME
+
+    from {{ source('ticket_database', 'allevents') }}
+)
+
+select * from event

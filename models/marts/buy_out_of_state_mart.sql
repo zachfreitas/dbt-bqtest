@@ -1,4 +1,4 @@
-with state_match as (
+/*with state_match as (
 select b.salesid
 , b.userid
 , b.state

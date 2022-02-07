@@ -39,6 +39,15 @@ with listings_mart as (
     s.STATE as Seller_STATE,
     EMAIL as Seller_EMAIL, 
     PHONE as Seller_PHONE,
+    LIKESPORTS as Seller_LIKESPORTS,
+    liketheatre as Seller_liketheatre,
+    likeconcerts as Seller_likeconcerts,
+    likejazz as Seller_likejazz,
+    likeclassical as Seller_likeclassical,
+    likeopera as Seller_likeopera,
+    likerock as Seller_likerock,
+    likevegas as Seller_likevegas,
+    likebroadway as Seller_likebroadway
     FROM {{ ref('stg_listings') }} l
     join {{ ref('event_mart') }} e
     on l.EVENTID = e.EVENTID

@@ -34,4 +34,4 @@ with sales_mart as (
     on s.BUYERID = b.USERID
 )
 select *
-from sales_mart;
+from sales_mart

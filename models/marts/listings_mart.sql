@@ -57,4 +57,4 @@ with listings_mart as (
     on l.SELLERID = s.USERID
 )
 select *
-from listings_mart;
+from listings_mart

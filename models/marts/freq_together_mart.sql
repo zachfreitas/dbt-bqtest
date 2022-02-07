@@ -1,6 +1,6 @@
 with freq_together as (
-SELECT s1.buyerid
-       , s2.buyerid
+SELECT s1.buyerid as buyer_1
+       , s2.buyerid as buyer_2
        , count(distinct s1.eventid) number_of_events
        , max(count(distinct s1.eventid)) over () as max
 FROM {{ ref('stg_sales') }} s1

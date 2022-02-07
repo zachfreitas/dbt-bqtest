@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: event_mart
+    description: Event data with dates and venue information.
+  - name: listings_mart
+    description: Listings data with dates, seller, event, and venue information.
+  - name: sales_mart
+    description: Sales data with dates and buyer information.
+  - name: freq_together_mart
+    description: There are buyers who frequent concerts together.

@@ -1,7 +1,7 @@
 with date as (
     
     select 
-        DATEID,
+        CAST(dateid AS INT64) as DATEID,
         CALDATE,
         DAY,
         WEEK,

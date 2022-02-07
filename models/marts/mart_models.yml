@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: event_mart
+    description: Event data with dates and venue information.
+  - name: buyer_mart
+    description: Buyers of tickets with dates, and event details.
+  - name: seller_mart
+    description: Sellers of tickets with dates, and event details.

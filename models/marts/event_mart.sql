@@ -28,4 +28,4 @@ with event_mart as (
     on e.DATEID = d.DATEID
 )
 select *
-from event_mart;
+from event_mart

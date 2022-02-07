@@ -3,3 +3,5 @@ version: 2
 models:
   - name: event_mart
     description: Event data with dates and venue information.
+  - name: listings_mart
+    description: Listings data with dates and event and venue information.

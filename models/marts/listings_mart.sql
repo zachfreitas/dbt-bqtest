@@ -1,4 +1,4 @@
-with event_mart as (
+with listings_mart as (
     SELECT l.LISTID,
     l.SELLERID,
     l.EVENTID,
@@ -14,12 +14,38 @@ with event_mart as (
     d.QTR as listing_QTR,
     d.YEAR as listing_YEAR,
     d.HOLIDAY as listing_HOLIDAY,
-    e.*
+    VENUEID,
+    CATID,
+    EVENTNAME,
+    STARTTIME,
+    CATGROUP,
+    CATNAME,
+    CATDESC,
+    VENUENAME,
+    VENUECITY,
+    VENUESTATE,
+    VENUESEATS,
+    event_date,
+    event_day,
+    event_WEEK,
+    event_month,
+    event_QTR,
+    event_YEAR,
+    event_HOLIDAY,
+    s.USERNAME as Seller_USERNAME,
+    s.FIRSTNAME as Seller_FIRSTNAME,
+    s.LASTNAME as Seller_LASTNAME,
+    s.CITY as Seller_City,
+    s.STATE as Seller_STATE,
+    EMAIL as Seller_EMAIL, 
+    PHONE as Seller_PHONE,
     FROM {{ ref('stg_listings') }} l
     join {{ ref('event_mart') }} e
     on l.EVENTID = e.EVENTID
     join {{ ref('stg_date') }}  d
     on e.DATEID = d.DATEID
+    join {{ ref('stg_users') }}  s
+    on l.SELLERID = s.USERID
 )
 select *
 from listings_mart;

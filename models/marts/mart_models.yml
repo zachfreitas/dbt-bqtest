@@ -3,9 +3,221 @@ version: 2
 models:
   - name: event_mart
     description: Event data with dates and venue information.
+    columns: 
+    - name: eventid
+      description: event id
+    - name: VENUEID
+      description: venue id
+    - name: CATID
+      description: category id
+    - name: DATEID
+      description: date id
+    - name: EVENTNAME
+      description: event name
+    - name: STARTTIME
+      description: event start time
+    - name: CATGROUP
+      description: event category group
+    - name: CATNAME
+      description: event category name
+    - name: CATDESC
+      description: event category description
+    - name: VENUENAME
+      description: venue name
+    - name: VENUECITY
+      description: venue city
+    - name: VENUESTATE
+      description: venue state
+    - name: VENUESEATS
+      description: venue seats
+    - name: event_date
+      description: event date
+    - name: event_day
+      description: event day
+    - name: event_WEEK
+      description: event week
+    - name: event_month
+      description: event month
+    - name: event_QTR
+      description: event quarter
+    - name: event_YEAR
+      description: event year
+    - name: event_HOLIDAY
+      description: event holiday
+
   - name: listings_mart
     description: Listings data with dates, seller, event, and venue information.
-  - name: sales_mart
-    description: Sales data with dates and buyer information.
+    columns:
+    - name: LISTID
+      description: List id
+    - name: SELLERID 
+      description: Seller id
+    - name: EVENTID
+      description: Event id
+    - name: DATEID
+      description: Date id
+    - name: NUMTICKETS
+      description: number of tickets for sale
+    - name: PRICEPERTICKET
+      description: price per ticket
+    - name: TOTALPRICE
+      description: total price
+    - name: LISTTIME
+      description: List time
+    - name: listing_date
+      description: Listing date
+    - name: listing_day
+      description: listing day
+    - name: listing_WEEK
+      description: listing week
+    - name: listing_month
+      description: listing month
+    - name: listing_QTR
+      description: listing quarter
+    - name: listing_YEAR
+      description: listing year
+    - name: listing_HOLIDAY
+      description: listing holiday
+    - name: VENUEID
+      description: venue id
+    - name: CATID
+      description: category id
+    - name: DATEID
+      description: date id
+    - name: EVENTNAME
+      description: event name
+    - name: STARTTIME
+      description: event start time
+    - name: CATGROUP
+      description: event category group
+    - name: CATNAME
+      description: event category name
+    - name: CATDESC
+      description: event category description
+    - name: VENUENAME
+      description: venue name
+    - name: VENUECITY
+      description: venue city
+    - name: VENUESTATE
+      description: venue state
+    - name: VENUESEATS
+      description: venue seats
+    - name: event_date
+      description: event date
+    - name: event_day
+      description: event day
+    - name: event_WEEK
+      description: event week
+    - name: event_month
+      description: event month
+    - name: event_QTR
+      description: event quarter
+    - name: event_YEAR
+      description: event year
+    - name: event_HOLIDAY
+      description: event holiday
+    - name: Seller_USERNAME
+      description: seller's username 
+    - name: Seller_FIRSTNAME
+      description: seller's first name
+    - name: Seller_LASTNAME
+      description: seller's last name
+    - name: Seller_City
+      description: seller's city
+    - name: Seller_STATE 
+      description: seller's state
+    - name: Seller_EMAIL
+      description: seller's email
+    - name: Seller_PHONE
+      description: seller's phone number
+    - name: Seller_LIKESPORTS
+      description: Seller_LIKESPORTS 
+    - name: Seller_liketheatre
+      description: Seller_liketheatre
+    - name: Seller_likeconcerts
+      description: Seller_likeconcerts
+    - name: Seller_likejazz
+      description: Seller_likejazz
+    - name: Seller_likeclassical
+      description: Seller_likeclassical
+    - name: Seller_likeopera
+      description: Seller_likeopera
+    - name: Seller_likerock
+      description: Seller_likerock
+    - name: Seller_likevegas
+      description: Seller_likevegas
+    - name: Seller_likebroadway
+      description: Seller_likebroadway
+
+
   - name: freq_together_mart
     description: There are buyers who frequent concerts together.
+    columns:
+    - name: buyer_1
+      description: buyer 1
+    - name: buyer_2
+      description: buyer 2
+    - name: number_of_events
+      description: number of events shared 
+    - name: max
+      description: Highest number of shared events across all buyer pairings.
+
+  - name: sales_mart
+    description: Sales data with dates and buyer information.
+    columns:
+    - name: SALESID
+      description: sales id
+    - name: QTYSOLD
+      description: quantity sold
+    - name: PRICEPAID
+      description: price paid
+    - name: COMMISSION
+      description: sales commission
+    - name: SALETIME
+      description: sales time
+    - name: sales_date
+      description: sales date
+    - name: sales_day
+      description: sales day
+    - name: sales_WEEK
+      description: sales week
+    - name: sales_month
+      description: sales month
+    - name: sales_QTR
+      description: sales quarter
+    - name: sales_YEAR
+      description: sales year
+    - name: sales_HOLIDAY
+      description: sales holiday
+    - name: Buyer_USERNAME
+      description: buyers username
+    - name: Buyer_FIRSTNAME
+      description: buyers firstname
+    - name: Buyer_LASTNAME
+      description: buyers lastname
+    - name: Buyer_City
+      description: buyers city
+    - name: Buyer_STATE
+      description: buyers state
+    - name: Buyer_EMAIL
+      description: Buyers email address
+    - name: Buyer_PHONE
+      description: Buyers phone number
+    - name: Buyer_LIKESPORTS
+      description: Buyer_LIKESPORTS
+    - name: Buyer_liketheatre
+      description: Buyer_liketheatre
+    - name: Buyer_likeconcerts
+      description: Buyer_likeconcerts
+    - name: Buyer_likejazz
+      description: Buyer_likejazz
+    - name: Buyer_likeclassical
+      description: Buyer_likeclassical
+    - name: Buyer_likeopera
+      description: Buyer_likeopera
+    - name: Buyer_likerock
+      description: Buyer_likerock
+    - name: Buyer_likevegas
+      description: Buyer_likevegas
+    - name: Buyer_likebroadway
+      description: Buyer_likebroadway

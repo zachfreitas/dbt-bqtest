@@ -4,6 +4,7 @@ with venue as (
         VENUEID,
         VENUENAME,
         VENUECITY,
+        VENUESTATE,
         VENUESEATS
         
     from {{ source('ticket_database', 'venue') }}
